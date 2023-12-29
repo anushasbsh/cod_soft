@@ -1,37 +1,30 @@
 #include<iostream>
-#include<random>
+#include<cstdlib>
 using namespace std;
-int main()
-{
 
-     int guessingnumber;
-     int attempt=0;
+int main() {
+    int userGuess;
+    int tries = 0;
 
-     cout<<"Hi! Welcome to Number Guessing Game..."<<endl;
-     cout<<"You need to guess the number between 1 and 10"<<endl;
+    cout << "Welcome to the Mystery Number Challenge!" << endl;
+    cout << "Try to guess the secret number between 1 and 10." << endl;
 
-     while(true)
-     {
-     int secret = rand()%10+1;
-        attempt++;
-        cout<<"Enter your number:";
-        cin>>guessingnumber;
+    while (true) {
+        int secretNumber = rand() % 10 + 1;
+        tries++;
 
-        if(guessingnumber>secret)
-        {
-            cout<<"Oops! Your number is too high! Better Luck Next time."<<endl;
-        }
+        cout << "Enter your guess: ";
+        cin >> userGuess;
 
-        else if(guessingnumber<secret)
-        {
-            cout<<"Oh no! Your number is too low! Try again."<<endl;
-        }
-
-        else{
-            cout<<"Hooray! You guessed the secret number in "<<attempt<<" attempts"<<endl;
+        if (userGuess > secretNumber) {
+            cout << "Too high! Aim lower." << endl;
+        } else if (userGuess < secretNumber) {
+            cout << "Too low! Aim higher." << endl;
+        } else {
+            cout << "Congratulations! You found the secret number in " << tries << " tries." << endl;
             break;
         }
-     }
+    }
 
-     return 0;
+    return 0;
 }
